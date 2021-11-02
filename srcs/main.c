@@ -6,20 +6,35 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2021/10/22 17:21:41 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/02 18:00:19 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+int	win_close(int keycode, t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+}
+
 int	main(void)
 {
-	data_t	data;
+	t_data	img;
+	t_vars	vars;
 
-	if ((data.mlx_ptr = mlx_init()) == NULL)
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 640, 480, "so_long");
+	img.img = mlx_new_image(vars.mlx, 640, 480);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+								&img.endian);
+	pixel_put(&img, 5, 5, 0x00FF0000);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_key_hook(vars.win, key_hook, &vars);
+//	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	if (vars.mlx == NULL)
 		return (EXIT_FAILURE);
-	if ((data.mlx_win = mlx_new_window(data.mlx_ptr, 640, 480, "so_long")) == NULL)
+	if (vars.win == NULL)
 		return (EXIT_FAILURE);
-	mlx_loop(data.mlx_ptr);
+	mlx_loop(vars.mlx);
 	return (EXIT_SUCCESS);
 }

@@ -6,26 +6,27 @@
 #    By: nargouse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:54:05 by nargouse          #+#    #+#              #
-#    Updated: 2021/11/02 13:27:09 by nargouse         ###   ########.fr        #
+#    Updated: 2021/11/02 17:43:24 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
-INCLUDE = -L. mlx_linux/libmlx.a -lXext -lX11 -lm -lbsd -lpthread
+INCLUDE = ./include/so_long.h
 LIB	= ./mlx_linux/libmlx.a
 CFLAGS	= -Wall -Werror -Wextra -DLINUX
+LFLAGS	= -lXext -lX11
 
-SRCS	= ./srcs/ft_so_long.c ./srcs/main.c
+SRCS	= ./srcs/main.c ./srcs/key_hook.c ./srcs/pixel_put.c
 
 OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): minilibx $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDE) -o $(NAME) $(LIB)
+	$(CC) $(OBJS) $(LIB) $(LFLAGS) -o $@
 
-.c.o :
-	$(CC) -w $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o) $(LIB)
+srcs/%.o : srcs/%.c
+	$(CC) $(LIB) -c $< -o $@
 
 minilibx :
 	$(MAKE) -C ./mlx_linux
