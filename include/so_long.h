@@ -6,17 +6,13 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2021/10/22 18:20:20 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/02 13:24:31 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	SO_LONG_H
 # define	SO_LONG_H
-# ifdef LINUX
-#  include "../minilibx-linux/mlx.h"
-# else
-#  include <mlx.h>
-# endif
+# include "../mlx_linux/mlx.h"
 # include <unistd.h>
 # include <sys/types.h>
 # include <sys/stat.h>
