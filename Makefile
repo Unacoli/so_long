@@ -6,13 +6,15 @@
 #    By: nargouse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:54:05 by nargouse          #+#    #+#              #
-#    Updated: 2021/11/02 17:43:24 by nargouse         ###   ########.fr        #
+#    Updated: 2021/11/03 17:40:17 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
-INCLUDE = ./include/so_long.h
-LIB	= ./mlx_linux/libmlx.a
+INCLUDE = ./include
+MLX	= ./mlx_linux/libmlx.a
+LIBFT	= ./libft/libft.a
+LIB	= $(MLX) $(LIBFT)
 CFLAGS	= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
@@ -22,22 +24,27 @@ OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): minilibx $(OBJS)
+$(NAME): $(MLX) $(LIBFT) $(OBJS)
 	$(CC) $(OBJS) $(LIB) $(LFLAGS) -o $@
 
-srcs/%.o : srcs/%.c
-	$(CC) $(LIB) -c $< -o $@
+srcs/%.o: srcs/%.c
+	$(CC) -I $(INCLUDE) -c $< -o $@
 
-minilibx :
+$(MLX):
 	$(MAKE) -C ./mlx_linux
 
+$(LIBFT):
+	$(MAKE) -C ./libft
+
 clean:
-	$(MAKE) -C ./mlx_linux/. clean
+	$(MAKE) -C ./mlx_linux clean
+	$(MAKE) -C ./libft clean
 	$(RM) $(OBJS)
 
 fclean:	clean
 	$(RM) $(NAME)
-	$(RM) ./mlx_linux/libmlx.a
+	$(RM) $(MLX)
+	$(RM) $(LIBFT)
 
 re:	fclean all
 

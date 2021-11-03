@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/03 17:10:34 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:41:00 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 	img.img = mlx_new_image(vars.mlx, 640, 480);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	wall.img = mlx_xpm_file_to_image(vars.mlx, "wall.xpm", &wall.img_width, &wall.img_height);
+	wall.img = mlx_xpm_file_to_image(vars.mlx, "texturing/wall.xpm", &wall.img_width, &wall.img_height);
 	if (wall.img == NULL)
 		return (EXIT_FAILURE);
 	pixel_put(&img, 5, 5, 0x00FF0000);
