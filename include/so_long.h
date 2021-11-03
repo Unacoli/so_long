@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/02 17:49:44 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/03 16:58:33 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct	s_vars
 	void	*mlx;
 	void	*win;
 }		t_vars;
+
+typedef struct	s_img
+{
+	int	*img;
+	int	img_width;
+	int	img_height;
+}		t_img;
 
 void	pixel_put(t_data *data, int x, int y, int color);
 int	key_hook(int keycode, t_vars *vars);
