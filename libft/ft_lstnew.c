@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:26:55 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/28 17:15:50 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/11 17:59:09 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *lst;
+	t_list	*lst;
 
-	if (!(lst = malloc(sizeof(t_list))))
+	lst = malloc(sizeof(t_list));
+	if (!lst)
 		return (NULL);
 	lst->content = content;
 	lst->next = NULL;

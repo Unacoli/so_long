@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnjoin_free.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/11 17:28:49 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 17:31:16 by nargouse         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnjoin_free(char const *s1, char const *s2, size_t n)
 {
 	char	*result;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
-	if (!(result = (char *)malloc(sizeof(char) * (ft_strlen(s1)
-		+ ft_strlen(s2) + 1))))
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!result)
 		return (NULL);
 	i = 0;
 	j = 0;

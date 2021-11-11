@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:07:13 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/03 17:29:07 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:16:49 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # define BUFSIZE BUFFER_SIZE
 
 int		ft_free(void **ptr);
-int		ft_if(char **left, char **tmp);
 char	*ft_strjoin_free(char const *s1, char const *s2);
 char	*ft_strnjoin_free(char const *s1, char const *s2, size_t n);
 char	*ft_strchr(char const *str, int c);

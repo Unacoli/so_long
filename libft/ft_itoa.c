@@ -6,20 +6,20 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:05:55 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/15 18:20:41 by nargouse         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:35:10 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		abs_value(int n)
+int	abs_value(int n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-int		ft_intlen(int n)
+int	ft_intlen(int n)
 {
 	int	len;
 
@@ -40,7 +40,8 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = ft_intlen(n);
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	str[len] = '\0';
 	if (n < 0)
