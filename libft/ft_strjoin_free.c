@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 17:51:43 by nargouse          #+#    #+#             */
-/*   Updated: 2022/01/31 22:53:17 by nargouse         ###   ########.fr       */
+/*   Created: 2021/11/11 17:34:53 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 17:35:01 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *str)
+char	*ft_strjoin_free(char const *s1, char const *s2)
 {
-	long	n;
-	int		s;
+	char	*result;
 	int		i;
+	int		j;
 
-	n = 0;
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
-	while ((str[i] == ' ' || str[i] == '\n' || str[i] == '\r' || str[i] == '\t'
-			|| str[i] == '\v' || str[i] == '\f') && str[i] != '\0')
-		i++;
-	s = 1;
-	if (str[i] == '-')
+	j = 0;
+	while (s1[j])
 	{
-		if (!ft_isdigit(str[i + 1]))
-			return (LONG_MIN);
-		s = -1;
-		i++;
+			result[i] = s1[j];
+			i++;
+			j++;
 	}
-	while (str[i])
+	j = 0;
+	while (s2[j])
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (LONG_MIN);
-		n = n * 10 + (str[i] - '0');
-		i++;
+			result[i] = s2[j];
+			i++;
+			j++;
 	}
-	return (n * s);
+	result[i] = '\0';
+	free((char *)s1);
+	return (result);
 }
