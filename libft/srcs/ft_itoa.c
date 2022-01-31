@@ -1,28 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 17:46:52 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/15 18:06:46 by nargouse         ###   ########.fr       */
+/*   Created: 2021/01/07 18:05:55 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 18:35:10 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	abs_value(int n)
 {
-	char *str;
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
-	if (nmemb == 0 || size == 0)
+int	ft_intlen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
-		nmemb = 1;
-		size = 1;
+		len++;
+		n = n / 10;
 	}
-	if ((str = malloc(nmemb * size)) == NULL)
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+
+	len = ft_intlen(n);
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	ft_bzero(str, nmemb * size);
+	str[len] = '\0';
+	if (n < 0)
+		str[0] = '-';
+	else if (n == 0)
+		str[0] = '0';
+	while (n != 0)
+	{
+		len--;
+		str[len] = abs_value(n % 10) + '0';
+		n = n / 10;
+	}
 	return (str);
 }

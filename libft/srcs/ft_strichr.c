@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strichr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 13:20:01 by nargouse          #+#    #+#             */
-/*   Updated: 2021/02/02 13:40:15 by nargouse         ###   ########.fr       */
+/*   Created: 2021/11/11 17:40:05 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 17:40:08 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_strichr(const char *s, int c)
 {
-	char	*result;
-	int		i;
-	int		j;
+	int	i;
 
-	if (!(result = (char *)malloc(sizeof(char *) * (ft_strlen(s1)
-		+ ft_strlen(s2) + 1))))
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[j])
+	if (c == 0)
 	{
-		result[i] = s1[j];
-		i++;
-		j++;
+		while (s[i])
+			i++;
+		return (i);
 	}
-	j = 0;
-	while (s2[j])
+	while (s[i])
 	{
-		result[i] = s2[j];
+		if (s[i] == c)
+			return (i);
 		i++;
-		j++;
 	}
-	result[i] = '\0';
-	return (result);
+	return (i);
 }

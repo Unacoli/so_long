@@ -1,51 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 15:29:15 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/03 17:33:10 by nargouse         ###   ########.fr       */
+/*   Created: 2021/01/17 16:32:13 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 18:01:17 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ptr;
 	size_t	i;
+	char	*dst;
 
-	i = 0;
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (ptr == 0)
+	if (s == NULL)
 		return (NULL);
-	while (src[i] && i < n)
-	{
-		ptr[i] = src[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
-
-int		ft_strichr(const char *s, int c)
-{
-	int i;
-
+	dst = malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
 	i = 0;
-	if (c == 0)
+	if (!((unsigned int)ft_strlen(s) < start))
 	{
-		while (s[i])
+		while (i < len && s[i + start])
+		{
+			dst[i] = s[i + start];
 			i++;
-		return (i);
+		}
 	}
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (i);
-		i++;
-	}
-	return (i);
+	dst[i] = '\0';
+	return (dst);
 }

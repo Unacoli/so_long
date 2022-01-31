@@ -1,24 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_quit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 18:26:55 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/28 17:15:50 by nargouse         ###   ########.fr       */
+/*   Created: 2022/01/29 18:32:32 by nargouse          #+#    #+#             */
+/*   Updated: 2022/01/29 18:49:47 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list *lst;
-
-	if (!(lst = malloc(sizeof(t_list))))
-		return (NULL);
-	lst->content = content;
-	lst->next = NULL;
-	return (lst);
-}

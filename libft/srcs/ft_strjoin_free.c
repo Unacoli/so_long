@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/17 16:45:33 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/22 16:23:03 by nargouse         ###   ########.fr       */
+/*   Created: 2021/11/11 17:34:53 by nargouse          #+#    #+#             */
+/*   Updated: 2022/01/28 02:40:51 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strjoin_free(char const *s1, char const *s2)
 {
-	char			*result;
-	unsigned int	i;
-	unsigned int	len;
+	char	*result;
+	int		i;
+	int		j;
 
-	if (!s || !f)
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!result)
 		return (NULL);
-	len = ft_strlen(s);
 	i = 0;
-	result = NULL;
-	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (i < len)
-	{
-		result[i] = (*f)(i, s[i]);
+	j = 0;
+	while (s1[j])
+	{	
+		result[i] = s1[j];
 		i++;
+		j++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
 	}
 	result[i] = '\0';
+	free((char *)s1);
 	return (result);
 }

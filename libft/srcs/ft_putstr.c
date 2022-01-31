@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 18:38:38 by nargouse          #+#    #+#             */
-/*   Updated: 2021/01/17 15:01:00 by nargouse         ###   ########.fr       */
+/*   Created: 2021/11/11 18:39:31 by nargouse          #+#    #+#             */
+/*   Updated: 2021/11/11 18:39:36 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putstr(char *str)
 {
-	int i;
-
-	i = 0;
-	if (c == 0)
-	{
-		while (s[i])
-			i++;
-		return ((char *)s + i);
-	}
-	while (s[i])
-	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i++;
-	}
-	return (0);
+	ft_putstr_fd(str, 1);
 }

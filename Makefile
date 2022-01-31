@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nargouse <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/07 14:54:05 by nargouse          #+#    #+#              #
-#    Updated: 2021/11/03 17:40:17 by nargouse         ###   ########.fr        #
+#    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
+#    Updated: 2022/01/31 22:47:54 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,24 @@ LIB	= $(MLX) $(LIBFT)
 CFLAGS	= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
-SRCS	= ./srcs/main.c ./srcs/key_hook.c ./srcs/pixel_put.c
-
-OBJS	= $(SRCS:.c=.o)
+FILES	= main.c key_hook.c pixel_put.c
+SRCS	= $(addprefix ./srcs/, $(FILES))
+OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
-	$(CC) $(OBJS) $(LIB) $(LFLAGS) -o $@
+	$(CC) $(OBJS) $(LIB) $(CFLAGS) $(LFLAGS) -o $@
 
-srcs/%.o: srcs/%.c
+objs/%.o: srcs/%.c
+	mkdir -p ./objs/
 	$(CC) -I $(INCLUDE) -c $< -o $@
 
 $(MLX):
 	$(MAKE) -C ./mlx_linux
 
 $(LIBFT):
-	$(MAKE) -C ./libft
+	$(MAKE) --no-print-directory -C ./libft
 
 clean:
 	$(MAKE) -C ./mlx_linux clean
