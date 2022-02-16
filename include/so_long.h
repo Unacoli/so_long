@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/03 16:58:33 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:08:30 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define XK_LATIN1
 # include <X11/X.h>
 # include <X11/keysymdef.h>
+# include "../libft/include/libft.h"
 
 typedef struct	s_data
 {
@@ -49,6 +50,6 @@ typedef struct	s_img
 }		t_img;
 
 void	pixel_put(t_data *data, int x, int y, int color);
-int	key_hook(int keycode, t_vars *vars);
+int	key_escp(int keycode, t_vars *vars);
 
 #endif

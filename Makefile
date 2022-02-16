@@ -6,12 +6,12 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/01/31 22:47:54 by nargouse         ###   ########.fr        #
+#    Updated: 2022/02/16 17:40:05 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
-INCLUDE = ./include
+INCLUDE = ./include/
 MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 LIB	= $(MLX) $(LIBFT)
