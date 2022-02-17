@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/16 18:44:48 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:51:44 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int ac, char **av)
 	t_data	img;
 	t_vars	vars;
 	t_img	wall;
+	t_img	player;
 	char	**map;
 	int		fd;
 
@@ -45,6 +46,7 @@ int	main(int ac, char **av)
 	if (isber(av[1]) == 0)
 		ft_quit("Use a .ber file");
 	fd = open(av[1], O_RDONLY);
+
 	printf("%d\n", fd);
 	close(fd);
 	vars.mlx = mlx_init();
@@ -54,12 +56,14 @@ int	main(int ac, char **av)
 	img.img = mlx_new_image(vars.mlx, 640, 480);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
-	wall.img = mlx_xpm_file_to_image(vars.mlx, "texturing/wall.xpm", &wall.img_width, &wall.img_height);
+	player.img = mlx_xpm_file_to_image(vars.mlx, PLAYER, &player.img_width, &player.img_height);
+	if (player.img == NULL)
+		return (EXIT_FAILURE);
+	wall.img = mlx_xpm_file_to_image(vars.mlx, WALL, &wall.img_width, &wall.img_height);
 	if (wall.img == NULL)
 		return (EXIT_FAILURE);
-	pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	mlx_put_image_to_window(vars.mlx, vars.win, wall.img, 10, 10);
+	mlx_put_image_to_window(vars.mlx, vars.win, player.img, 0, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, wall.img, 0, 0);
 	mlx_key_hook(vars.win, key_escp, &vars);
 	mlx_hook(vars.win, DestroyNotify, 1L << 0, win_close, &vars);
 	if (vars.win == NULL)

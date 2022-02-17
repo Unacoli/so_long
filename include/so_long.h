@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/16 18:08:30 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:07:52 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 # include <X11/X.h>
 # include <X11/keysymdef.h>
 # include "../libft/include/libft.h"
+# define WALL "texturing/wall.xpm"
+# define BACKGROUND "texturing/background.xpm"
+# define PLAYER "texturing/player.xpm"
+# define COLLECTIBLE "texturing/collectible.xpm"
+# define EXIT "texturing/exit.xpm"
+# define START "texturing/start.xpm"
+# define ENNEMI "texturing/ennemi.xpm"
 
 typedef struct	s_data
 {
