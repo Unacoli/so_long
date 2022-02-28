@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:38:36 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/16 18:06:08 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:07:35 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_check_base(const char *base);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi_base(const char *str, char *base);
 int		ft_lstsize(t_list *lst);
+int     ft_int_error(int ac, char **av);
 
 char	*ft_strdup(const char *src);
 char	*ft_itoa(int n);
@@ -78,7 +79,8 @@ void	ft_lstadd_back(t_list **alst, t_list *new_list);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-int     ft_int_error(int ac, char **av);
+void	ft_print_str_tab(char **tab);
+void	ft_free_tab(void ***tab);
 
 size_t	ft_strlcat(char *dst, char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
