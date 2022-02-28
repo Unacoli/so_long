@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 19:59:24 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:24:19 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int ac, char **av)
 	if (isber(av[1]) == 0)
 		ft_quit("Use a .ber file");
 	map = read_map(av[1]);
+	check_map(map);
 	vars.mlx = mlx_init();
 	if (vars.mlx == NULL)
 		return (EXIT_FAILURE);
