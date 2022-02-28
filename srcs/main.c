@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/17 15:51:44 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:13:17 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,54 @@ static int	isber(char *name_file)
 	return (1);
 }
 
+static int	get_line_count(char **av)
+{
+	int		i;
+	int		fd;
+	char	*line;
+	int		ret;
+
+	fd = open(av[1], O_RDONLY);
+	i = 0;
+	ret = get_next_line(fd, &line);
+	while (ret == 1)
+	{
+		i++;
+		free(line);
+		ret = get_next_line(fd, &line);
+		if (i == 2)
+			ret = -1;
+	}
+	if (i != 0)
+		free(line);
+	if (ret == -1)
+		ft_quit("Error while reading file\n");
+	close(fd);
+	return (i);
+}
+
+static char	**read_map(char **av)
+{
+	char	**map;
+	char	*line;
+	int		fd;
+	int		n_lines;
+
+	n_lines = get_line_count(av);
+	
+
+
+	fd = open(av[1], O_RDONLY);
+	// TODO: check fd
+	while (get_next_line(fd, &line) == 1)
+	{
+		printf("%s\n", line);
+	}
+	printf("fd:%d\n", fd);
+	close(fd);
+	return (map);
+}
+
 int	main(int ac, char **av)
 {
 	t_data	img;
@@ -39,16 +87,13 @@ int	main(int ac, char **av)
 	t_img	wall;
 	t_img	player;
 	char	**map;
-	int		fd;
 
 	if (ac != 2)
 		ft_quit("Usage: ./so_long <*.ber>\n");
 	if (isber(av[1]) == 0)
 		ft_quit("Use a .ber file");
-	fd = open(av[1], O_RDONLY);
+	map = read_map(av);
 
-	printf("%d\n", fd);
-	close(fd);
 	vars.mlx = mlx_init();
 	if (vars.mlx == NULL)
 		return (EXIT_FAILURE);
