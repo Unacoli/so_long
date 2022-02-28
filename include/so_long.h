@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/17 15:07:52 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:53:15 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ typedef struct	s_img
 
 void	pixel_put(t_data *data, int x, int y, int color);
 int	key_escp(int keycode, t_vars *vars);
+char	**read_map(char *file);
 
 #endif

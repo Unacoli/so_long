@@ -6,7 +6,7 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/02/16 17:40:05 by nargouse         ###   ########.fr        #
+#    Updated: 2022/02/28 19:53:44 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB	= $(MLX) $(LIBFT)
 CFLAGS	= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
-FILES	= main.c key_hook.c pixel_put.c
+FILES	= main.c key_hook.c pixel_put.c init_map.c parse_map.c
 SRCS	= $(addprefix ./srcs/, $(FILES))
 OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 
