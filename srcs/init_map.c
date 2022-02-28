@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:50:56 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 19:53:21 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:59:47 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	**malloc_empty_map(char *file)
 	return (map);
 }
 
-static char **fill_map(char *file, char **map)
+static char	**fill_map(char *file, char **map)
 {
 	int		fd;
 	char	*line;
@@ -71,9 +71,8 @@ char	**read_map(char *file)
 	char	**map;
 	char	*line;
 	int		fd;
-	
+
 	map = malloc_empty_map(file);
 	map = fill_map(file, map);
 	return (map);
 }
-
