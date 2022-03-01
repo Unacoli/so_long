@@ -19,7 +19,7 @@ CFLAGS	+= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
 FILES	= main.c key_hook.c pixel_put.c init_map.c parse_map.c init_mlx.c\
-			put_asset.c start_assets.c utils.c
+			put_asset.c start_assets.c utils.c init_assets.c
 SRCS	= $(addprefix ./srcs/, $(FILES))
 OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 

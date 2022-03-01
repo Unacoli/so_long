@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 01:45:50 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:38:08 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ static int	isber(char *name_file)
 
 int	main(int ac, char **av)
 {
-	t_vars	vars;
-	char	**map;
+	t_vars		vars;
+	char		**map;
+	t_assets	assets;
 
 	if (ac != 2)
 		ft_quit("Usage: ./so_long <*.ber>\n");
@@ -43,7 +44,7 @@ int	main(int ac, char **av)
 		ft_quit("Use a .ber file\n");
 	map = read_map(av[1]);
 	check_map(map);
-	init_mlx(map, &vars);
+	init_mlx(&assets, map, &vars);
 	mlx_key_hook(vars.win, key_escp, &vars);
 	mlx_hook(vars.win, DestroyNotify, 1L << 0, win_close, &vars);
 	ft_free_tab((void ***)&map);

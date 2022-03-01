@@ -6,13 +6,13 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 15:44:58 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:37:23 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	put_back(t_img background, int height, int width, t_vars *vars)
+static void	put_back(t_img bg, int height, int width, t_vars *vars)
 {
 	t_point	point;
 
@@ -22,49 +22,43 @@ static void	put_back(t_img background, int height, int width, t_vars *vars)
 		point.y = 0;
 		while (point.y < width)
 		{
-			mlx_put_image_to_window(vars->mlx, vars->win, background.img,
+			mlx_put_image_to_window(vars->mlx, vars->win, bg.img,
 				point.x, point.y);
-			point.y += background.width;
+			point.y += bg.width;
 		}
-		point.x += background.height;
+		point.x += bg.height;
 	}
 }
 
-t_img	heightwidth(char **map, int *height, int *width, t_vars *vars)
+t_img	*heightwidth(char **map, int *height, int *width, t_img *bg)
 {	
-	t_img	background;
 	int		i;
 
-	background.img = mlx_xpm_file_to_image(vars->mlx, BACKGROUND,
-			&background.height, &background.width);
-	if (background.img == NULL)
-		ft_quit_solong((void ***)&map, "Failed xpm file to image\n");
 	i = 0;
-	*height = ft_strlen(map[i]) * background.height;
+	*height = ft_strlen(map[i]) * bg->height;
 	while (map[i])
 		i++;
-	*width = i * background.width;
-	return (background);
+	*width = i * bg->width;
+	return (bg);
 }	
 
-void	init_mlx(char **map, t_vars *vars)
+void	init_mlx(t_assets *assets, char **map, t_vars *vars)
 {
 	t_data	img;
-	t_img	background;
 	int		height;
 	int		width;
 
 	vars->mlx = mlx_init();
 	if (vars->mlx == NULL)
 		ft_quit_solong((void ***)&map, "Init Minilibx failed\n");
-	background = heightwidth(map, &height, &width, vars);
+	init_assets(assets, vars, map);
+	heightwidth(map, &height, &width, &assets->bg);
 	vars->win = mlx_new_window(vars->mlx, height, width, "so_long");
 	if (vars->win == NULL)
 		ft_quit_solong((void ***)&map, "Failed creation of window\n");
 	img.img = mlx_new_image(vars->mlx, height, width);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
-	put_back(background, height, width, vars);
-	if (put_assets(map, &background, vars) == -1)
-		ft_quit_solong((void ***)&map, "Failed xpm file to image\n");
+	put_back(assets->bg, height, width, vars);
+	put_assets(map, assets, vars);
 }
