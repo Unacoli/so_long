@@ -6,7 +6,7 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/03/01 15:38:24 by nargouse         ###   ########.fr        #
+#    Updated: 2022/03/01 19:33:28 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ INCLUDE = ./include/
 MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 LIB	= $(MLX) $(LIBFT)
-CFLAGS	= -Wall -Werror -Wextra -DLINUX
+CFLAGS	+= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
 FILES	= main.c key_hook.c pixel_put.c init_map.c parse_map.c init_mlx.c\
@@ -30,7 +30,7 @@ $(NAME): $(MLX) $(LIBFT) $(OBJS)
 
 objs/%.o: srcs/%.c
 	mkdir -p ./objs/
-	$(CC) -I $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
 $(MLX):
 	$(MAKE) -C ./mlx_linux
