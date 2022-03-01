@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:06:35 by nargouse          #+#    #+#             */
-/*   Updated: 2022/01/31 22:53:48 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:31:00 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	get_next_line(int fd, char **line)
 	int			ret;
 	char		*tmp;
 
+	ft_bzero(buf, BUFSIZE + 1);
 	if (fd < 0 || line == NULL || BUFSIZE <= 0 || read(fd, NULL, 0) == -1)
 		return (-1);
 	*line = ft_tern1(left);
@@ -64,6 +65,5 @@ int	get_next_line(int fd, char **line)
 		return (ft_free((void **)&left));
 	tmp = left;
 	left = ft_strdup(ft_strchr(buf, '\n') + 1);
-	free(tmp);
-	return (1);
+	return (free(tmp), 1);
 }
