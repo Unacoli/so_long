@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 14:16:06 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:44:58 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ t_img	heightwidth(char **map, int *height, int *width, t_vars *vars)
 	background.img = mlx_xpm_file_to_image(vars->mlx, BACKGROUND,
 			&background.height, &background.width);
 	if (background.img == NULL)
-	{
-		ft_free_tab((void ***)&map);
-		ft_quit("Failed xpm file to image\n");
-	}
+		ft_quit_solong((void ***)&map, "Failed xpm file to image\n");
 	i = 0;
 	*height = ft_strlen(map[i]) * background.height;
 	while (map[i])
@@ -59,20 +56,15 @@ void	init_mlx(char **map, t_vars *vars)
 
 	vars->mlx = mlx_init();
 	if (vars->mlx == NULL)
-	{
-		ft_free_tab((void ***)&map);
-		ft_quit("Init Minilibx failed\n");
-	}
+		ft_quit_solong((void ***)&map, "Init Minilibx failed\n");
 	background = heightwidth(map, &height, &width, vars);
 	vars->win = mlx_new_window(vars->mlx, height, width, "so_long");
 	if (vars->win == NULL)
-	{
-		ft_free_tab((void ***)&map);
-		ft_quit("Failed creation of window\n");
-	}
+		ft_quit_solong((void ***)&map, "Failed creation of window\n");
 	img.img = mlx_new_image(vars->mlx, height, width);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	put_back(background, height, width, vars);
-	put_assets(map, &background, vars);
+	if (put_assets(map, &background, vars) == -1)
+		ft_quit_solong((void ***)&map, "Failed xpm file to image\n");
 }

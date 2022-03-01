@@ -6,7 +6,7 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/03/01 14:10:08 by nargouse         ###   ########.fr        #
+#    Updated: 2022/03/01 15:38:24 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS	= -Wall -Werror -Wextra -DLINUX
 LFLAGS	= -lXext -lX11
 
 FILES	= main.c key_hook.c pixel_put.c init_map.c parse_map.c init_mlx.c\
-			put_asset.c start_assets.c
+			put_asset.c start_assets.c utils.c
 SRCS	= $(addprefix ./srcs/, $(FILES))
 OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 

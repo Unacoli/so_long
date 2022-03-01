@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 14:00:20 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:45:19 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ char	**read_map(char *file);
 void	check_map(char **map);
 void	init_mlx(char **map, t_vars *vars);
 t_img	heightwidth(char **map, int *height, int *width, t_vars *vars);
-void	put_assets(char **map, t_img *bg, t_vars *vars);
+int		put_assets(char **map, t_img *bg, t_vars *vars);
 int		put_asset(char *name, t_point point, t_img *bg, t_vars *vars);
+void	ft_quit_solong(void ***tab, char *message);
 
 #endif
