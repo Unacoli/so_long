@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 23:07:18 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/02/28 23:18:17 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ static void	check_wall(char **map)
 	{
 		while (map[x][y])
 		{
-			if (x == 0 && map[0][y] != '1')
+			if ((x == 0 && map[0][y] != '1')
+				|| (y == 0 && map[x][0] != '1')
+				|| (map[x + 1] == NULL && map[x][y] != '1')
+				|| (y == ft_strlen(map[x]) - 1 && map[x][y] != '1'))
+			{
+				ft_free_tab((void ***)&map);
 				ft_quit("Missing wall\n");
-			if (y == 0 && map[x][0] != '1')
-				ft_quit("Missing wall\n");
-			if (map[x + 1] == NULL && map[x][y] != '1')
-				ft_quit("Missing wall\n");
-			if (y == ft_strlen(map[x]) - 1 && map[x][y] != '1')
-				ft_quit("Missing wall\n");
+			}
 			y++;
 		}
 		x++;

@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 20:23:55 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 01:04:58 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	pixel_put(t_data *data, int x, int y, int color);
 int	key_escp(int keycode, t_vars *vars);
 char	**read_map(char *file);
 void	check_map(char **map);
+void	init_mlx(char **map, t_vars *vars);
 
 #endif
