@@ -6,31 +6,11 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 19:38:08 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 22:50:19 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	win_close(t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	exit(EXIT_SUCCESS);
-}
-
-static int	isber(char *name_file)
-{
-	int	len;
-
-	len = ft_strlen(name_file);
-	if (name_file == 0)
-		return (0);
-	if (len < 5)
-		return (0);
-	if (ft_strncmp(name_file + len - 4, ".ber", 4) != 0)
-		return (0);
-	return (1);
-}
 
 int	main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:50:56 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 19:59:47 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 22:01:02 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	get_line_count(char *file)
 	int		ret;
 
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		ft_quit("Can't open file\n");
 	i = 0;
 	ret = get_next_line(fd, &line);
 	while (ret == 1)
@@ -57,6 +59,8 @@ static char	**fill_map(char *file, char **map)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		ft_quit("Can't open file\n");
 	while (get_next_line(fd, &line) == 1)
 	{
 		map[i] = line;
@@ -69,8 +73,6 @@ static char	**fill_map(char *file, char **map)
 char	**read_map(char *file)
 {
 	char	**map;
-	char	*line;
-	int		fd;
 
 	map = malloc_empty_map(file);
 	map = fill_map(file, map);

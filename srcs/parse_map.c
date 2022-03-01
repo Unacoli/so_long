@@ -6,11 +6,25 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 13:28:04 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:50:23 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	isber(char *name_file)
+{
+	int	len;
+
+	len = ft_strlen(name_file);
+	if (name_file == 0)
+		return (0);
+	if (len < 5)
+		return (0);
+	if (ft_strncmp(name_file + len - 4, ".ber", 4) != 0)
+		return (0);
+	return (1);
+}
 
 static void	check_element(char **map)
 {

@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:09:24 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 17:13:58 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 21:47:17 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	put_start(char **map, t_point point, t_assets *a, t_vars *vars)
 			if (map[point.x][point.y] == 'P' && start_found == 0)
 			{
 				start_found = 1;
-				put_asset(point, &a->start, vars, &a->bg);
+				put_asset(point, a->start, vars, a->bg);
 			}
 			else if (map[point.x][point.y] == 'P' && start_found == 1)
 				map[point.x][point.y] = '0';
@@ -61,13 +61,13 @@ void	put_assets(char **map, t_assets *assets, t_vars *vars)
 		while (map[point.x][point.y])
 		{
 			if (map[point.x][point.y] == '1')
-				put_wall(point, &assets->bg, vars, &assets->wall);
+				put_wall(point, assets->bg, vars, assets->wall);
 			if (map[point.x][point.y] == 'P')
 				put_start(map, point, assets, vars);
 			if (map[point.x][point.y] == 'C')
-				put_item(point, &assets->bg, vars, &assets->item);
+				put_item(point, assets->bg, vars, assets->item);
 			if (map[point.x][point.y] == 'E')
-				put_exit(point, &assets->bg, vars, &assets->exit);
+				put_exit(point, assets->bg, vars, assets->exit);
 			point.y++;
 		}
 		point.x++;
