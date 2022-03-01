@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 22:47:28 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 00:09:58 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct	s_vars
 	void		*mlx;
 	void		*win;
 	t_assets	*assets;
+	t_data		*img;
 }		t_vars;
 
 int		key_escp(int keycode, t_vars *vars);
