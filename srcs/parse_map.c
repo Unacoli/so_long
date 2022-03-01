@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 19:50:23 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 00:48:03 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	check_element(char **map)
 	int	i;
 	int	str[3];
 
-	ft_bzero(str, 3);
+	ft_bzero(str, sizeof(int) * 3);
 	i = 0;
 	while (map[i])
 	{
