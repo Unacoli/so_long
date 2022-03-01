@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 01:41:37 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:16:06 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,39 @@
 
 static void	put_back(t_img background, int height, int width, t_vars *vars)
 {
-	int		x;
-	int		y;
+	t_point	point;
 
-	x = 0;
-	while (x < height)
+	point.x = 0;
+	while (point.x < height)
 	{
-		y = 0;
-		while (y < width)
+		point.y = 0;
+		while (point.y < width)
 		{
-			mlx_put_image_to_window(vars->mlx, vars->win, background.img, x, y);
-			y += background.img_width;
+			mlx_put_image_to_window(vars->mlx, vars->win, background.img,
+				point.x, point.y);
+			point.y += background.width;
 		}
-		x += background.img_height;
+		point.x += background.height;
 	}
 }
 
-static t_img	heightwidth(char **map, int *height, int *width, t_vars *vars)
+t_img	heightwidth(char **map, int *height, int *width, t_vars *vars)
 {	
 	t_img	background;
 	int		i;
 
 	background.img = mlx_xpm_file_to_image(vars->mlx, BACKGROUND,
-			&background.img_height, &background.img_width);
+			&background.height, &background.width);
 	if (background.img == NULL)
 	{
 		ft_free_tab((void ***)&map);
 		ft_quit("Failed xpm file to image\n");
 	}
 	i = 0;
-	*height = ft_strlen(map[i]) * background.img_height;
+	*height = ft_strlen(map[i]) * background.height;
 	while (map[i])
 		i++;
-	*width = i * background.img_width;
+	*width = i * background.width;
 	return (background);
 }	
 
@@ -74,4 +74,5 @@ void	init_mlx(char **map, t_vars *vars)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	put_back(background, height, width, vars);
+	put_assets(map, &background, vars);
 }

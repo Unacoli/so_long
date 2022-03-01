@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 01:04:58 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 14:00:20 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,23 @@ typedef struct	s_vars
 typedef struct	s_img
 {
 	int	*img;
-	int	img_width;
-	int	img_height;
+	int	width;
+	int	height;
 }		t_img;
+
+typedef struct	s_point
+{
+	int	x;
+	int	y;
+}		t_point;
 
 void	pixel_put(t_data *data, int x, int y, int color);
 int	key_escp(int keycode, t_vars *vars);
 char	**read_map(char *file);
 void	check_map(char **map);
 void	init_mlx(char **map, t_vars *vars);
+t_img	heightwidth(char **map, int *height, int *width, t_vars *vars);
+void	put_assets(char **map, t_img *bg, t_vars *vars);
+int		put_asset(char *name, t_point point, t_img *bg, t_vars *vars);
 
 #endif

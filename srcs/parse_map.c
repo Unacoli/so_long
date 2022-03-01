@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 23:18:17 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:28:04 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static void	check_element(char **map)
 
 static void	check_rectangle(char **map)
 {
-	int i;
+	int	i;
 
-	i = 0; 
+	i = 0;
 	while (map[i + 1])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[i + 1]))
@@ -54,26 +54,26 @@ static void	check_rectangle(char **map)
 
 static void	check_wall(char **map)
 {
-	int	x;
-	int	y;
+	t_point	point;
 
-	x = 0;
-	y = 0;
-	while (map[x])
+	point.x = 0;
+	point.y = 0;
+	while (map[point.x])
 	{
-		while (map[x][y])
+		while (map[point.x][point.y])
 		{
-			if ((x == 0 && map[0][y] != '1')
-				|| (y == 0 && map[x][0] != '1')
-				|| (map[x + 1] == NULL && map[x][y] != '1')
-				|| (y == ft_strlen(map[x]) - 1 && map[x][y] != '1'))
+			if ((point.x == 0 && map[0][point.y] != '1')
+				|| (point.y == 0 && map[point.x][0] != '1')
+				|| (map[point.x + 1] == NULL && map[point.x][point.y] != '1')
+				|| (point.y == ft_strlen(map[point.x]) - 1
+					&& map[point.x][point.y] != '1'))
 			{
 				ft_free_tab((void ***)&map);
 				ft_quit("Missing wall\n");
 			}
-			y++;
+			point.y++;
 		}
-		x++;
+		point.x++;
 	}
 }
 
