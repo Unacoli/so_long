@@ -6,7 +6,7 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/03/01 20:48:47 by nargouse         ###   ########.fr        #
+#    Updated: 2022/03/02 16:19:32 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@ INCLUDE = ./include/
 MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 LIB	= $(MLX) $(LIBFT)
-CFLAGS	+= -Wall -Werror -Wextra -DLINUX
+CFLAGS	+= -Wall -Werror -Wextra
 LFLAGS	= -lXext -lX11
 
-FILES	= main.c destroy_win.c utils.c init_map.c parse_map.c init_mlx.c\
-			put_asset.c start_assets.c init_assets.c
+FILES	= main.c init_map.c parse_map.c init_mlx.c init_assets.c start_assets.c\
+		  handle_player.c move_up.c move_left.c move_right.c move_down.c\
+		  key_hook.c destroy_win.c utils.c
 SRCS	= $(addprefix ./srcs/, $(FILES))
 OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 

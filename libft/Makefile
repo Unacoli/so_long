@@ -6,13 +6,13 @@
 #    By: nargouse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:54:05 by nargouse          #+#    #+#              #
-#    Updated: 2022/02/28 19:06:35 by nargouse         ###   ########.fr        #
+#    Updated: 2022/03/02 15:04:57 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 INCLUDE = ./include/
-CFLAGS	+= -Wall -Werror -Wextra -DLINUX
+CFLAGS	+= -Wall -Werror -Wextra
 
 FILES	= ft_atoi.c ft_lstsize.c ft_strlcat.c ft_bzero.c ft_memccpy.c\
 		ft_strlcpy.c ft_calloc.c ft_memchr.c ft_strlen.c ft_free.c\

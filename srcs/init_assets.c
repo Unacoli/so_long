@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 17:15:59 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 23:29:03 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:59:24 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,40 @@ void	init_asset(char **map, char *name, t_img *asset, t_vars *vars)
 	asset->img = mlx_xpm_file_to_image(vars->mlx, name, &asset->height,
 			&asset->width);
 	if (asset->img == NULL)
-		ft_quit_solong((void ***)map, "Failed xpm to image\n");
+		ft_quit_solong((void ***)map, "Failed xpm to image\n", vars);
 }
 
-static void	fill_t_assets(t_assets *assets)
+static void	fill_t_assets(t_assets *assets, t_vars *vars, char **map)
 {
 	assets->bg = (t_img *)malloc(sizeof(t_img));
+	if (assets->bg == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->player_bg = (t_img *)malloc(sizeof(t_img));
+	if (assets->player_bg == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->player_e = (t_img *)malloc(sizeof(t_img));
+	if (assets->player_e == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->player_s = (t_img *)malloc(sizeof(t_img));
+	if (assets->player_s == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->exit = (t_img *)malloc(sizeof(t_img));
+	if (assets->exit == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->start = (t_img *)malloc(sizeof(t_img));
+	if (assets->start == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->item = (t_img *)malloc(sizeof(t_img));
+	if (assets->item == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 	assets->wall = (t_img *)malloc(sizeof(t_img));
+	if (assets->wall == NULL)
+		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 }
 
 void	init_assets(t_assets *assets, t_vars *vars, char **map)
 {
-	fill_t_assets(assets);
+	fill_t_assets(assets, vars, map);
 	init_asset(map, BACKGROUND, assets->bg, vars);
 	init_asset(map, PLAYER_BG, assets->player_bg, vars);
 	init_asset(map, PLAYER_E, assets->player_e, vars);

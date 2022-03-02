@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 00:09:58 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 18:15:54 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,42 @@ typedef struct	s_vars
 	void		*win;
 	t_assets	*assets;
 	t_data		*img;
+	char		**map;
+	t_point		*point;
+	int			count;
 }		t_vars;
 
-int		key_escp(int keycode, t_vars *vars);
+void	check_av(int ac, char **av);
 char	**read_map(char *file);
 void	check_map(char **map);
+
 void	init_mlx(t_assets *assets, char **map, t_vars *vars);
-t_img	*heightwidth(char **map, int *height, int *width, t_img *bg);
-void	put_assets(char **map, t_assets *assets, t_vars *vars);
-void	put_asset(t_point point, t_img *asset, t_vars *vars, t_img *bg);
-void	ft_quit_solong(void ***tab, char *message);
 void	init_asset(char **map, char *name, t_img *asset, t_vars *vars);
 void	init_assets(t_assets *assets, t_vars *vars, char **map);
+
+void	put_asset(t_point point, t_img *asset, t_vars *vars, t_img *bg);
+void	put_assets(char **map, t_assets *assets, t_vars *vars);
+
+void	put_back(t_point point, t_img *bg, t_vars *vars);
+void	put_wall(t_point point, t_img *bg, t_vars *vars, t_img *wall);
+void	put_item(t_point point, t_img *bg, t_vars *vars, t_img *item);
+void	put_exit(t_point point, t_img *bg, t_vars *vars, t_img *exit);
+void	put_start(t_point point, t_img *bg, t_vars *vars, t_img *start);
+void	put_player_bg(t_point point, t_img *bg, t_vars *vars, t_img *player_bg);
+void	put_player_s(t_point point, t_img *bg, t_vars *vars, t_img *player_s);
+void	put_player_e(t_point point, t_img *bg, t_vars *vars, t_img *player_e);
+
+void	init_player(t_assets *assets, char **map, t_vars *vars);
+
+int		key_hook(int keycode, t_vars *vars);
+int		move_up(t_vars *vars);
+int		move_left(t_vars *vars);
+int		move_right(t_vars *vars);
+int		move_down(t_vars *vars);
 int		win_close(t_vars *vars);
-int		isber(char *name_file);
+
 void	free_assets(t_vars *vars);
+void	free_assets2(t_vars *vars);
+void	ft_quit_solong(void ***tab, char *message, t_vars *vars);
 
 #endif

@@ -6,24 +6,32 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 00:48:03 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:30:53 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	isber(char *name_file)
+static void	check_multiplestart(char **map)
 {
-	int	len;
+	t_point	point;
+	int		start_found;
 
-	len = ft_strlen(name_file);
-	if (name_file == 0)
-		return (0);
-	if (len < 5)
-		return (0);
-	if (ft_strncmp(name_file + len - 4, ".ber", 4) != 0)
-		return (0);
-	return (1);
+	point.x = 0;
+	start_found = 0;
+	while (map[point.x])
+	{
+		point.y = 0;
+		while (map[point.x][point.y])
+		{
+			if (map[point.x][point.y] == 'P' && start_found == 0)
+				start_found = 1;
+			else if (map[point.x][point.y] == 'P' && start_found == 1)
+				map[point.x][point.y] = '0';
+			point.y++;
+		}
+		point.x++;
+	}
 }
 
 static void	check_element(char **map)
@@ -45,8 +53,8 @@ static void	check_element(char **map)
 	}
 	if (str[0] != 1 || str[1] != 1 || str[2] != 1)
 	{
-		ft_free_tab((void ***)&map);
-		ft_quit("One or multiple elements are missing\n");
+		ft_quit_solong((void ***)&map,
+			"One or multiple elements are missing\n", NULL);
 	}
 }
 
@@ -58,10 +66,7 @@ static void	check_rectangle(char **map)
 	while (map[i + 1])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[i + 1]))
-		{
-			ft_free_tab((void ***)&map);
-			ft_quit("Map isn't a rectangle\n");
-		}
+			ft_quit_solong((void ***)&map, "Map isn't a rectangle\n", NULL);
 		i++;
 	}
 }
@@ -82,8 +87,7 @@ static void	check_wall(char **map)
 				|| (point.y == ft_strlen(map[point.x]) - 1
 					&& map[point.x][point.y] != '1'))
 			{
-				ft_free_tab((void ***)&map);
-				ft_quit("Missing wall\n");
+				ft_quit_solong((void ***)&map, "Missing wall\n", NULL);
 			}
 			point.y++;
 		}
@@ -96,4 +100,5 @@ void	check_map(char **map)
 	check_element(map);
 	check_rectangle(map);
 	check_wall(map);
+	check_multiplestart(map);
 }

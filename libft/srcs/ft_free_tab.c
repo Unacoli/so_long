@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:57:32 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 19:18:08 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:01:04 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_tab(void ***tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while ((*tab)[i])
