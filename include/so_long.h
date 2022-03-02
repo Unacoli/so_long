@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 18:15:54 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:45:29 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define PLAYER_BG "texturing/player_bg.xpm"
 # define PLAYER_S "texturing/player_s.xpm"
 # define PLAYER_E "texturing/player_e.xpm"
+# define PLAYER_C "texturing/player_c.xpm"
 # define ITEM "texturing/collectible.xpm"
 # define EXIT "texturing/exit.xpm"
 # define START "texturing/start.xpm"
@@ -64,6 +65,7 @@ typedef struct	s_assets
 	t_img	*player_bg;
 	t_img	*player_e;
 	t_img	*player_s;
+	t_img	*player_c;
 	t_img	*exit;
 	t_img	*start;
 	t_img	*item;
@@ -111,7 +113,6 @@ int		move_down(t_vars *vars);
 int		win_close(t_vars *vars);
 
 void	free_assets(t_vars *vars);
-void	free_assets2(t_vars *vars);
 void	ft_quit_solong(void ***tab, char *message, t_vars *vars);
 
 #endif

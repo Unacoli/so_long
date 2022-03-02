@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 15:35:58 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 16:34:13 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:45:10 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	put_asset(t_point point, t_img *bg, t_vars *vars, t_img *asset)
 void	ft_quit_solong(void ***tab, char *message, t_vars *vars)
 {
 	free_assets(vars);
-	free_assets2(vars);
 	ft_free_tab((void ***)&tab);
 	ft_quit(message);
 }
