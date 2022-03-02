@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 19:50:56 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/01 22:01:02 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 01:08:44 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,24 @@ static char	**fill_map(char *file, char **map)
 	int		fd;
 	char	*line;
 	int		i;
+	int		ret;
 
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_quit("Can't open file\n");
-	while (get_next_line(fd, &line) == 1)
+	ret = get_next_line(fd, &line);
+	while (ret == 1)
 	{
 		map[i] = line;
 		i++;
+		ret = get_next_line(fd, &line);
 	}
 	close(fd);
+	if (i != 0)
+		free(line);
+	if (ret == -1)
+		ft_quit("Error while reading file\n");
 	return (map);
 }
 
