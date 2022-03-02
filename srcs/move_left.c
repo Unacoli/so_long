@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:45 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 20:10:44 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:59:40 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 static void	l_c(t_vars *vars, t_point point, t_img *bg, t_img *player_c)
 {
 	if (vars->map[vars->point->x][vars->point->y] == 'P')
-		put_start(point, bg, vars, vars->assets->start);
+		put_asset(point, bg, vars, vars->assets->start);
+	else if (vars->map[vars->point->x][vars->point->y] == 'E')
+		put_asset(point, bg, vars, vars->assets->exit);
 	else
-		put_back(point, bg, vars);
+		put_asset(point, bg, vars, bg);
 	point.y -= 1;
 	vars->map[point.x][point.y] = '0';
 	put_asset(point, bg, vars, player_c);
@@ -26,28 +28,38 @@ static void	l_c(t_vars *vars, t_point point, t_img *bg, t_img *player_c)
 static void	l_e(t_vars *vars, t_point point, t_img *bg, t_img *player_e)
 {
 	if (vars->map[vars->point->x][vars->point->y] == 'P')
-		put_start(point, bg, vars, vars->assets->start);
+		put_asset(point, bg, vars, vars->assets->start);
 	else
-		put_back(point, bg, vars);
+		put_asset(point, bg, vars, bg);
 	point.y -= 1;
-	put_player_e(point, bg, vars, player_e);
+	put_asset(point, bg, vars, player_e);
+	if (vars->n_item == 0)
+	{
+		ft_putstr("You win !\n");
+		win_close(vars);
+	}
 }
 
 static void	l_s(t_vars *vars, t_point point, t_img *bg, t_img *player_s)
 {
-	put_back(point, bg, vars);
+	if (vars->map[vars->point->x][vars->point->y] == 'E')
+		put_asset(point, bg, vars, vars->assets->exit);
+	else
+		put_asset(point, bg, vars, bg);
 	point.y -= 1;
-	put_player_s(point, bg, vars, player_s);
+	put_asset(point, bg, vars, player_s);
 }
 
 static void	l_b(t_vars *vars, t_point point, t_img *bg, t_img *player_bg)
 {
 	if (vars->map[vars->point->x][vars->point->y] == 'P')
-		put_start(point, bg, vars, vars->assets->start);
+		put_asset(point, bg, vars, vars->assets->start);
+	else if (vars->map[vars->point->x][vars->point->y] == 'E')
+		put_asset(point, bg, vars, vars->assets->exit);
 	else
-		put_back(point, bg, vars);
+		put_asset(point, bg, vars, bg);
 	point.y -= 1;
-	put_player_bg(point, bg, vars, player_bg);
+	put_asset(point, bg, vars, player_bg);
 }
 
 int	move_left(t_vars *vars)

@@ -6,13 +6,13 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 16:30:53 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:03:28 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	check_multiplestart(char **map)
+static void	check_multiplestart(char **map, int *n_item)
 {
 	t_point	point;
 	int		start_found;
@@ -28,6 +28,8 @@ static void	check_multiplestart(char **map)
 				start_found = 1;
 			else if (map[point.x][point.y] == 'P' && start_found == 1)
 				map[point.x][point.y] = '0';
+			if (map[point.x][point.y] == 'C')
+				n_item += 1;
 			point.y++;
 		}
 		point.x++;
@@ -95,10 +97,10 @@ static void	check_wall(char **map)
 	}
 }
 
-void	check_map(char **map)
+void	check_map(char **map, int *n_item)
 {
 	check_element(map);
 	check_rectangle(map);
 	check_wall(map);
-	check_multiplestart(map);
+	check_multiplestart(map, n_item);
 }

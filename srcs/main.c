@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:14:25 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 17:56:12 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:30:08 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int ac, char **av)
 
 	check_av(ac, av);
 	map = read_map(av[1]);
-	check_map(map);
+	vars.n_item = 0;
+	check_map(map, vars.n_item);
 	vars.map = map;
 	vars.img = &img;
 	init_mlx(&assets, map, &vars);
