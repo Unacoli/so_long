@@ -8,6 +8,7 @@ and some other very basic gameplay elements.
 
 ![player_bg](https://user-images.githubusercontent.com/29428817/156181573-94991af8-a28c-41e6-a84e-6fb85fb38235.png)
 ![player_s](https://user-images.githubusercontent.com/29428817/156181594-1fb59110-f86b-4c83-b5d3-c025821f4375.png)
+![player_c](https://user-images.githubusercontent.com/29428817/156429105-175b49e5-f3c8-419a-a8d6-a436e13d2860.png)
 ![player_exit](https://user-images.githubusercontent.com/29428817/156181603-f327933a-5418-4bb3-9e9c-ed3bab5c4dec.png)
 ![ennemi](https://user-images.githubusercontent.com/29428817/156181732-b6feacbc-8a74-4ee6-abfe-fc58c5c07796.png)
 ![collectible](https://user-images.githubusercontent.com/29428817/156182026-647e5a37-020e-4253-9618-1408de953f44.png)
