@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:45 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 20:59:40 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 01:36:59 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	l_e(t_vars *vars, t_point point, t_img *bg, t_img *player_e)
 	put_asset(point, bg, vars, player_e);
 	if (vars->n_item == 0)
 	{
-		ft_putstr("You win !\n");
+		ft_putstr("You won !\n");
 		win_close(vars);
 	}
 }
