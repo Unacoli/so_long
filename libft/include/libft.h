@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:38:36 by nargouse          #+#    #+#             */
-/*   Updated: 2022/02/28 19:07:35 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 12:51:47 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_check_base(const char *base);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi_base(const char *str, char *base);
 int		ft_lstsize(t_list *lst);
-int     ft_int_error(int ac, char **av);
+int		ft_int_error(int ac, char **av);
 
 char	*ft_strdup(const char *src);
 char	*ft_itoa(int n);

@@ -6,12 +6,13 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 05:33:52 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 12:54:37 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SO_LONG_H
-# define	SO_LONG_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
 # include "../mlx_linux/mlx.h"
 # include <unistd.h>
 # include <sys/types.h>
@@ -36,29 +37,29 @@
 # define EXIT "texturing/exit.xpm"
 # define START "texturing/start.xpm"
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }		t_data;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	int	*img;
 	int	width;
 	int	height;
 }		t_img;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int	x;
 	int	y;
 }		t_point;
 
-typedef struct	s_assets
+typedef struct s_assets
 {
 	t_img	*bg;
 	t_img	*player_bg;
@@ -71,7 +72,7 @@ typedef struct	s_assets
 	t_img	*wall;
 }		t_assets;
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
