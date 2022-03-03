@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 14:09:24 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:14:45 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 03:35:34 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	put_assets(char **map, t_assets *assets, t_vars *vars)
 				put_asset(point, assets->bg, vars, assets->item);
 			if (map[point.x][point.y] == 'E')
 				put_asset(point, assets->bg, vars, assets->exit);
+			if (map[point.x][point.y] == 'N')
+				put_asset(point, assets->bg, vars, assets->ennemi);
 			point.y++;
 		}
 		point.x++;

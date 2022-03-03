@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 17:15:59 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:12:18 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 03:34:15 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ static void	fill_t_assets(t_assets *assets, t_vars *vars, char **map)
 	assets->start = (t_img *)malloc(sizeof(t_img));
 	assets->item = (t_img *)malloc(sizeof(t_img));
 	assets->wall = (t_img *)malloc(sizeof(t_img));
+	assets->ennemi = (t_img *)malloc(sizeof(t_img));
 	if (!(assets->bg && assets->wall && assets->player_bg && assets->player_e
 			&& assets->player_s && assets->player_c && assets->exit
-			&& assets->start && assets->item && assets->wall))
+			&& assets->start && assets->item && assets->wall && assets->ennemi))
 		ft_quit_solong((void ***)&map, "Malloc error\n", vars);
 }
 
@@ -51,4 +52,5 @@ void	init_assets(t_assets *assets, t_vars *vars, char **map)
 	init_asset(map, START, assets->start, vars);
 	init_asset(map, ITEM, assets->item, vars);
 	init_asset(map, WALL, assets->wall, vars);
+	init_asset(map, ENNEMI, assets->ennemi, vars);
 }

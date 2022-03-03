@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:57:56 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:13:44 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 04:02:49 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	move_right(t_vars *vars)
 			r_e(vars, *vars->point, vars->assets->bg, vars->assets->player_e);
 		else if (vars->map[vars->point->x][vars->point->y + 1] == 'C')
 			r_c(vars, *vars->point, vars->assets->bg, vars->assets->player_c);
+		else if (vars->map[vars->point->x][vars->point->y + 1] == 'N')
+			die(vars);
 		vars->point->y += 1;
 		return (1);
 	}

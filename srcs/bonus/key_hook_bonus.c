@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:43:18 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:12:35 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 04:16:00 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	print_count(t_vars *vars)
 {
 	vars->count += 1;
+//	mlx_string_put(vars, vars->win, 10, 10, 0, ft_itoa(vars->count));
 	if (vars->count > 1)
 		ft_putstr("\033[A\033[2K");
 	ft_putnbr(vars->count);

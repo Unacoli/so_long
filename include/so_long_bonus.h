@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 01:56:25 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 03:59:44 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		move_up(t_vars *vars);
 int		move_left(t_vars *vars);
 int		move_right(t_vars *vars);
 int		move_down(t_vars *vars);
+void	die(t_vars *vars);
 int		win_close(t_vars *vars);
 
 void	free_assets(t_vars *vars);

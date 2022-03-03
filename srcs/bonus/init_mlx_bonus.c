@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:15:24 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 03:34:57 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	assets_null(t_vars *vars)
 	vars->assets->start = NULL;
 	vars->assets->item = NULL;
 	vars->assets->wall = NULL;
+	vars->assets->ennemi = NULL;
 }
 
 void	init_mlx(t_assets *assets, char **map, t_vars *vars)

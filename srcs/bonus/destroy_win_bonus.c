@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:21:46 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:15:37 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 04:09:35 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	free_assets(t_vars *vars)
 			free_asset(vars->mlx, vars->assets->wall);
 		if (vars->assets->player_c != NULL)
 			free_asset(vars->mlx, vars->assets->player_c);
+		if (vars->assets->ennemi != NULL)
+			free_asset(vars->mlx, vars->assets->ennemi);
 	}
 }
 
