@@ -36,7 +36,7 @@
 *.x86_64
 *.hex
 so_long
-bonus
+so_long_bonus
 
 # Debug files
 *.dSYM/
