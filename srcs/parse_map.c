@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 22:08:21 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 05:33:29 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	check_multiplestart(char **map, t_vars *vars)
 		point.y = 0;
 		while (map[point.x][point.y])
 		{
+			check_elements(map, &point);
 			if (map[point.x][point.y] == 'P' && start_found == 0)
 				start_found = 1;
 			else if (map[point.x][point.y] == 'P' && start_found == 1)

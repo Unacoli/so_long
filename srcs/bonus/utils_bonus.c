@@ -6,11 +6,21 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 15:35:58 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:35:56 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 05:38:50 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	check_elements(char **map, t_point *point)
+{
+	if (!(map[point->x][point->y] == 'P' || map[point->x][point->y] == 'E'
+						|| map[point->x][point->y] == 'C'
+						|| map[point->x][point->y] == '0'
+						|| map[point->x][point->y] == 'N'
+						|| map[point->x][point->y] == '1'))
+		ft_quit_solong((void ***)&map, "Wrong elements in map\n", NULL);
+}
 
 static int	isber(char *name_file)
 {

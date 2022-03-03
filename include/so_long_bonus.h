@@ -6,7 +6,7 @@
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 03:59:44 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 05:34:09 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct	s_vars
 void	check_av(int ac, char **av);
 char	**read_map(char *file);
 void	check_map(char **map, t_vars *vars);
+void	check_elements(char **map, t_point *point);
 
 void	init_mlx(t_assets *assets, char **map, t_vars *vars);
 void	init_asset(char **map, char *name, t_img *asset, t_vars *vars);
