@@ -3,6 +3,7 @@
 This project is a very small 2D game.
 Its purpose is to make you work with textures, sprites,
 and some other very basic gameplay elements. \
+This project has been validated with a score of 120/100. \
 ⚠️ **ONLY WORKING ON LINUX** ⚠️
 
 # Original assets
