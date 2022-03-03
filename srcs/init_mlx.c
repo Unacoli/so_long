@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/02 16:38:01 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 01:01:41 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ static t_img	*heightwidth(char **map, int *height, int *width, t_img *bg)
 	return (bg);
 }	
 
+static void	assets_null(t_vars *vars)
+{
+	vars->assets->bg = NULL;
+	vars->assets->player_bg = NULL;
+	vars->assets->player_e = NULL;
+	vars->assets->player_s = NULL;
+	vars->assets->player_c = NULL;
+	vars->assets->exit = NULL;
+	vars->assets->start = NULL;
+	vars->assets->item = NULL;
+	vars->assets->wall = NULL;
+}
+
 void	init_mlx(t_assets *assets, char **map, t_vars *vars)
 {
 	int		height;
@@ -36,6 +49,7 @@ void	init_mlx(t_assets *assets, char **map, t_vars *vars)
 
 	height = 0;
 	width = 0;
+	assets_null(vars);
 	vars->mlx = mlx_init();
 	if (vars->mlx == NULL)
 		ft_quit_solong((void ***)&map, "Init Minilibx failed\n", vars);
