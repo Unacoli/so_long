@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:07:52 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 02:08:30 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 02:15:24 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static t_img	*heightwidth(char **map, int *height, int *width, t_img *bg)
 {	

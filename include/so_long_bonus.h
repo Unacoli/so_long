@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nargouse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:49:05 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 01:54:45 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 01:56:25 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SO_LONG_H
-# define	SO_LONG_H
+#ifndef	SO_LONG_BONUS_H
+# define	SO_LONG_BONUS_H
 # include "../mlx_linux/mlx.h"
 # include <unistd.h>
 # include <sys/types.h>
@@ -35,6 +35,7 @@
 # define ITEM "texturing/collectible.xpm"
 # define EXIT "texturing/exit.xpm"
 # define START "texturing/start.xpm"
+# define ENNEMI "texturing/ennemi.xpm"
 
 typedef struct	s_data
 {
@@ -69,18 +70,19 @@ typedef struct	s_assets
 	t_img	*start;
 	t_img	*item;
 	t_img	*wall;
+	t_img	*ennemi;
 }		t_assets;
 
 typedef struct	s_vars
 {
 	void		*mlx;
 	void		*win;
-	t_assets	*assets;
-	t_data		*img;
 	char		**map;
+	t_data		*img;
+	t_assets	*assets;
 	t_point		*point;
-	int			count;
 	int			n_item;
+	int			count;
 }		t_vars;
 
 void	check_av(int ac, char **av);
