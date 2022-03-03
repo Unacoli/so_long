@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 20:04:12 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 05:33:29 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:13:18 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static void	check_multiplestart(char **map, t_vars *vars)
 		while (map[point.x][point.y])
 		{
 			check_elements(map, &point);
+			if (map[point.x][point.y] == 'C')
+				n_item += 1;
 			if (map[point.x][point.y] == 'P' && start_found == 0)
 				start_found = 1;
 			else if (map[point.x][point.y] == 'P' && start_found == 1)
 				map[point.x][point.y] = '0';
-			if (map[point.x][point.y] == 'C')
-				n_item += 1;
 			point.y++;
 		}
 		point.x++;
@@ -82,16 +82,15 @@ static void	check_wall(char **map)
 	t_point	point;
 
 	point.x = 0;
-	point.y = 0;
 	while (map[point.x])
 	{
+		point.y = 0;
 		while (map[point.x][point.y])
 		{
-			if ((point.x == 0 && map[0][point.y] != '1')
-				|| (point.y == 0 && map[point.x][0] != '1')
-				|| (map[point.x + 1] == NULL && map[point.x][point.y] != '1')
-				|| (point.y == ft_strlen(map[point.x]) - 1
-					&& map[point.x][point.y] != '1'))
+			if ((map[0][point.y] != '1') || (map[point.x][0] != '1')
+					|| (map[point.x + 1] == NULL
+						&& map[point.x][point.y] != '1')
+					|| map[point.x][ft_strlen(map[point.x]) - 1] != '1')
 			{
 				ft_quit_solong((void ***)&map, "Missing wall\n", NULL);
 			}

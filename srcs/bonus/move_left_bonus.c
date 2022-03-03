@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:01:45 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 04:03:56 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:40:06 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	l_c(t_vars *vars, t_point point, t_img *bg, t_img *player_c)
 		put_asset(point, bg, vars, bg);
 	point.y -= 1;
 	vars->map[point.x][point.y] = '0';
+	vars->n_item -= 1;
 	put_asset(point, bg, vars, player_c);
 }
 
