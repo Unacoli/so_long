@@ -20,10 +20,10 @@ and some other very basic gameplay elements. \
 
 # Usage
 
-The game have two versions.
+The game has two versions.
 
 - *Vanilla version*
-  - Compile with `make`.
+  - Compile with `make`
   - Execute `./so_long` with a `.ber` map as an argument : \
     `./so_long maps/map1.ber` \
     `./so_long maps/map2.ber`
@@ -31,7 +31,7 @@ The game have two versions.
 ![so_long_vanilla](https://user-images.githubusercontent.com/29428817/156498764-d074da93-6383-4ad4-b1b2-33b0ebc57c3f.png)
 
 - *Fancy version*
-  - Compile with `make bonus`.
+  - Compile with `make bonus`
   - Execute `./bonus` with a `.ber` map as an argument : \
     `./so_long maps/map1.ber` \
     `./so_long maps/map2.ber` \
