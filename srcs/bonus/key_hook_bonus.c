@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 14:43:18 by nargouse          #+#    #+#             */
-/*   Updated: 2022/03/03 04:16:00 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 04:50:20 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 
 static void	print_count(t_vars *vars)
 {
+	char	*count;
+	t_point	reprint;
+
 	vars->count += 1;
-//	mlx_string_put(vars, vars->win, 10, 10, 0, ft_itoa(vars->count));
+	reprint.x = 0;
+	reprint.y = 0;
+	put_asset(reprint, vars->assets->bg, vars, vars->assets->wall);
+	count = ft_itoa(vars->count);
+	if (count == NULL)
+		ft_quit_solong((void ***)&vars->map, "Malloc error\n", vars);
+	mlx_string_put(vars->mlx, vars->win, 25, 25, 0x00FFFFFF, count);
+	free(count);
 	if (vars->count > 1)
 		ft_putstr("\033[A\033[2K");
 	ft_putnbr(vars->count);

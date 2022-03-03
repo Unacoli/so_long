@@ -6,7 +6,7 @@
 /*   By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:28:49 by nargouse          #+#    #+#             */
-/*   Updated: 2021/11/11 17:31:16 by nargouse         ###   ########.fr       */
+/*   Updated: 2022/03/03 04:36:17 by nargouse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnjoin_free(char const *s1, char const *s2, size_t n)
 	int		i;
 	int		j;
 
-	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!result)
 		return (NULL);
 	i = 0;
