@@ -37,6 +37,7 @@
 *.hex
 so_long
 so_long_bonus
+mlx_linux/test/mlx-test
 
 # Debug files
 *.dSYM/
