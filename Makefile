@@ -6,7 +6,7 @@
 #    By: nargouse <nargouse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 22:41:32 by nargouse          #+#    #+#              #
-#    Updated: 2022/03/03 02:50:02 by nargouse         ###   ########.fr        #
+#    Updated: 2022/03/03 15:19:30 by nargouse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,22 +30,24 @@ FILES_BONUS	=	main_bonus.c init_map_bonus.c parse_map_bonus.c\
 SRCS	= $(addprefix ./srcs/, $(FILES))
 OBJS	= $(addprefix ./objs/, $(FILES:.c=.o))
 SRCS_BONUS	= $(addprefix ./srcs/bonus/, $(FILES_BONUS))
-OBJS_BONUS	= $(addprefix ./objs/, $(FILES_BONUS:.c=.o))
+OBJS_BONUS	= $(addprefix ./objs/bonus/, $(FILES_BONUS:.c=.o))
 
 all: $(NAME)
+
+bonus: $(NAME)_bonus
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
 	$(CC) $(OBJS) $(LIB) $(CFLAGS) $(LFLAGS) -o $@
 
-bonus: $(MLX) $(LIBFT) $(OBJS_BONUS)
+$(NAME)_bonus: $(MLX) $(LIBFT) $(OBJS_BONUS)
 	$(CC) $(OBJS_BONUS) $(LIB) $(CFLAGS) $(LFLAGS) -o $@
 
 objs/%.o: srcs/%.c
 	mkdir -p ./objs/
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
-objs/%.o: srcs/bonus/%.c
-	mkdir -p ./objs/
+objs/bonus/%.o: srcs/bonus/%.c
+	mkdir -p ./objs/bonus/
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
 $(MLX):
@@ -62,7 +64,7 @@ clean:
 
 fclean:	clean
 	$(RM) $(NAME)
-	$(RM) ./bonus
+	$(RM) $(NAME)_bonus
 	$(RM) $(MLX)
 	$(RM) $(LIBFT)
 
