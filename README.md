@@ -3,6 +3,7 @@
 This project is a very small 2D game.
 Its purpose is to make you work with textures, sprites,
 and some other very basic gameplay elements.
+⚠️ ONLY WORKING ON LINUX ⚠️
 
 # Original assets
 
@@ -16,3 +17,33 @@ and some other very basic gameplay elements.
 ![exit](https://user-images.githubusercontent.com/29428817/153879791-30d7d09b-b00d-4254-8fd2-0bf84bb98a9d.png)
 ![wall](https://user-images.githubusercontent.com/29428817/156177940-b776af5f-7d6f-4178-8eb5-c1d5d34eed04.png)
 ![background](https://user-images.githubusercontent.com/29428817/153784485-0efc4cba-296c-4d80-9479-88a3902aaf61.png)
+
+# Usage
+
+The game have two versions.
+
+- *Vanilla version*
+  - Compile with `make`.
+  - Execute `./so_long` with a `.ber` map as an argument : \
+    `./so_long maps/map1.ber` \
+    `./so_long maps/map2.ber`
+    
+![so_long_vanilla](https://user-images.githubusercontent.com/29428817/156498764-d074da93-6383-4ad4-b1b2-33b0ebc57c3f.png)
+
+- *Fancy version*
+  - Compile with `make bonus`.
+  - Execute `./bonus` with a `.ber` map as an argument : \
+    `./so_long maps/map1.ber` \
+    `./so_long maps/map2.ber` \
+    `./so_long maps/map_bonus.ber`
+    
+![so_long](https://user-images.githubusercontent.com/29428817/156498913-cb252006-e4ff-4492-b195-85b462b2bafd.png)
+
+# How to play
+
+- Use `W`, `A`, `S`, `D` to move
+- Eat all the fish
+- Avoid evil cats (*fancy version*)
+- Go to the exit
+
+You can quit the game by pressing the `ESC` key or clicking the red cross !
